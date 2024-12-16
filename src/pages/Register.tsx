@@ -54,7 +54,7 @@ export default function Register() {
       }
 
       // Verifica se o código já foi usado por outro participante
-      const { data: existingParticipant, error: participantError } = await supabase
+      const { data: existingParticipant } = await supabase
         .from('participants')
         .select('*')
         .eq('code', formData.purchaseCode)
