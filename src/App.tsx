@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Home from './pages/Home';
 import Register from './pages/Register';
 import Admin from './pages/Admin';
@@ -7,13 +7,14 @@ import Layout from './components/Layout';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/alfasorteios">
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/terms" element={<Terms />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Layout>
     </Router>
